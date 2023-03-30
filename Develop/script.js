@@ -17,8 +17,11 @@ var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
 var uppercase = lowercase.map(lowercase =>lowercase.toUpperCase())  
 var numeric = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 var special;
-var characterNum = 0;
 
+var password = [];
+
+
+console.log(special)
 
 
 var generateBtn = document.querySelector("#generate");
@@ -28,8 +31,7 @@ function randomCharacter(array){
   return character;
     }
 
-// randomCharacter()
-console.log(randomCharacter(lowercase))
+
 
 // Write password to the #password input
 
@@ -78,32 +80,6 @@ function userChoice(){
     alert("You need to select at least one character type");
     return null 
    }
-   function randomGen(){
-    var random = Math.floor(Math.random()*length)
-    return random
-   }
-   for(length; length>0; length--){
-    
-   if( confirmLowercase){
-      length = length--
-    // pick this many characters from array at random
-   }
-   if(confirmUppercase){
-    length = length --
-   }
-   if(confirmNumeric){
-    length = length --
-   }
-  
-   if(confirmSpecial){
-    length = length -- 
-    
-    }
-    console.log(characterNum)
- 
-    
-    }
-
    var userAnswer = {
     length : length,
     lowercase: confirmLowercase,
@@ -111,9 +87,21 @@ function userChoice(){
     numeric : confirmNumeric,
     special : confirmSpecial,
    }
+  }
 
-   return userAnswer;
-  } // for main function 
+  
+   function randomGen(){
+    var random = Math.floor(Math.random()*length)
+    return random
+   }
+   
+ 
+    
+    
+ 
+
+ 
+   // for main function 
 
 
   
@@ -123,8 +111,29 @@ function userChoice(){
  
   function generatePassword(){
     var userInfo = userChoice();
-   
+    for(length; length>0; length--){
+    
+      if( confirmLowercase){
+         password.push(randomCharacter(lowercase));
+       // pick this many characters from array at random
+      }
+      if(confirmUppercase){
+       randomCharacter(uppercase);
+      }
+      if(confirmNumeric){
+       randomCharacter(numeric);
+      }
+     
+      if(confirmSpecial){
+       randomCharacter(special); 
+       
+       }
+       
+      }
     }
+    generatePassword();
+    console.log(password)
+  
     
       
 
