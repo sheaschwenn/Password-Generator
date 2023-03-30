@@ -17,11 +17,8 @@ var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
 var uppercase = lowercase.map(lowercase =>lowercase.toUpperCase())  
 var numeric = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 var special;
-var needed = [];
-var temp=[];
-var password = [];
-var possible = [];
-var character;
+
+
 
 
 var generateBtn = document.querySelector("#generate");
@@ -108,60 +105,71 @@ function userChoice(){
  
  
   function generatePassword(){
+    // cannot be global or will be kept there, or would need to var them again here
+    var needed = [];
+    var password = [];
+    var possible = [];
+    // storing the return user answer as a var
     var userInfo = userChoice();
     console.log(userInfo);
+
+    // if user chose lower case characters push one lower case into the needed array
     if(userInfo.lowercase){
       needed.push(randomCharacter(lowercase));
-    //  length = length-1
-
-    // pick this many characters from array at random
    }
+
+   // if user chose upper case characters push one lower case into the needed array
    if(userInfo.uppercase){
     needed.push(randomCharacter(uppercase));
-    // length = length-1
+    
    }
+   // if user chose upper case characters push one lower case into the needed array
    if(userInfo.numeric){
     needed.push(randomCharacter(numeric));
-    // length = length-1
+    
    }
-  
+  // if user chose upper case characters push one lower case into the needed array
    if(userInfo.special){
     needed.push(randomCharacter(special)); 
-    // length = length -1 
+     
     }
+    // for loop putting other possible user chosen characters into the possible array
     for(var i = userInfo.length; i>0; i--){
     
       if(userInfo.lowercase){
          possible.push(randomCharacter(lowercase));
-        
-
-       // pick this many characters from array at random
       }
+
       if(userInfo.uppercase){
        possible.push(randomCharacter(uppercase));
-       
       }
+
       if(userInfo.numeric){
        possible.push(randomCharacter(numeric));
-       
       }
      
       if(userInfo.special){
        possible.push(randomCharacter(special)); 
-       
        }
+      // placing needed and possible into one array together 
       password = needed.concat(possible);
+      // setting the password length to the length chosen by user 
+      // password will always include at least one of the chosen characters becuase they will be at the front
       password.length = userInfo.length; 
-       function randomPassword(password){
-        for(var j = password.length; j>0;j--){
+
+      // creating a function to randomize the password so it doesn't follow a predictable pattern
+       function randomPassword(array){
+        for(var j = array.length; j>0;j--){
           random = Math.floor(Math.random()*j);
-          [password[password.length], password[j]] = [password[j],password[password.length]];
+          // swapping the previous indexes of the original array with the indexs of the j array
+          [array[array.length], array[j]] = [array[j],array[array.length]];
         }
-        return password
+        return array
        }
        randomPassword(password);
    
        }
+      //  turning password from an array to a string
       return password.join("")
       
       }
