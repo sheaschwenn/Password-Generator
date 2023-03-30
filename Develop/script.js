@@ -13,16 +13,23 @@
 
 // Assignment Code
 // create arrays of all of the different characters all global variable at top
-var lowercase = ["abcdefghijklmnopqrstuvwxyz"];
-var uppercase = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+var uppercase = lowercase.map(lowercase =>lowercase.toUpperCase())  
 var numeric = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 var special;
 var characterNum = 0;
 
+
+
 var generateBtn = document.querySelector("#generate");
 
+function randomCharacter(array){
+  var character = array[Math.floor(Math.random()*array.length)];
+  return character;
+    }
 
-
+// randomCharacter()
+console.log(randomCharacter(lowercase))
 
 // Write password to the #password input
 
@@ -71,24 +78,29 @@ function userChoice(){
     alert("You need to select at least one character type");
     return null 
    }
-
+   function randomGen(){
+    var random = Math.floor(Math.random()*length)
+    return random
+   }
+   for(length; length>0; length--){
+    
    if( confirmLowercase){
-    characterNum = characterNum+1;
+      length = length--
+    // pick this many characters from array at random
    }
    if(confirmUppercase){
-    characterNum = characterNum+1;
+    length = length --
    }
    if(confirmNumeric){
-    characterNum = characterNum+1;
+    length = length --
    }
   
    if(confirmSpecial){
-    characterNum = characterNum+1;
+    length = length -- 
     
     }
     console.log(characterNum)
-  function randomGen(){
-    var random = Math.floor(Math.random()*length-characterNum)
+ 
     
     }
 
