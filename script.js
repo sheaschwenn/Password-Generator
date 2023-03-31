@@ -149,7 +149,7 @@ function userChoice(){
        function randomPassword(array){
         for(var i = array.length; i>0;i--){
           var random = Math.floor(Math.random()*i);
-          // swapping the previous indexes of the original array with the indexs of the j array
+          // swapping the previous indexes of the original array with the indexs of the i array
           [array[array.length], array[random]] = [array[random],array[array.length]];
         }
         return array

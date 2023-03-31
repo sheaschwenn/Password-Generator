@@ -19,7 +19,7 @@ Random password generator created using JavaScript
 This password generator allows users to input how long they would like their password to be (between 8 and 128 characters) and select from the four different character types: lowercase, uppercase, numbers, and/or special characters.  It then takes the user input and creates a randomized password that fits the users chosen criteria. This was done using JavaScript and various alerts, confirms and prompts.   
 
 
-![Site Langing Page](./site.gif)
+![Password Generator in Use](./Assets/password-generator.gif)
 
 
 ## Table of Contents (Optional)
@@ -55,12 +55,12 @@ Creating a function that will randomly pick an item out of any array that it is 
 This web application can be used to generate a randomized password between 8 and 128 characters in length.
 
 
-![alt text](assets/images/screenshot.png)
+![Screen shot of Password Generator](./Assets/password-screenshot.png)
 
 
 
 ## Learning Points 
-Creating this application was a great opportunity to familiarize myself with functions in, if statements and for loops within JavaScrips
+Creating this application was a great opportunity to familiarize myself with functions, if statements and for loops within JavaScrips
 Other Learning points were: 
 * How global and local variables actually work and the importance of where variables are defined 
 * Alerts, Confirms and Prompts
@@ -92,7 +92,9 @@ for(var i = array.length; i>0; i--);
 ## Credits
 
 To randomly shuffle the final password I used a tutorial on shuffling an array.  I used the basis of this tutorial but instead of using a while loop I used a for loop since those were more familiar to me and made scense in the constext of shuffling my password array. I found out that this is called the Fisher-Yates shuffle.
+
 [Shuffling an Array Tutorial](https://www.w3docs.com/snippets/javascript/how-to-randomize-shuffle-a-javascript-array.html)
+
 [Fisher-Yates Shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
 
 
