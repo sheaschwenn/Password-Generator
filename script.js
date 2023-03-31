@@ -13,6 +13,7 @@
 
 // Assignment Code
 // create arrays of all of the different characters all global variable at top
+
 var lowercase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var uppercase = lowercase.map(lowercase =>lowercase.toUpperCase())  
 var numeric = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -20,10 +21,7 @@ var special = ['"',"'","!","#","$","%","&","(",")","*","+",",","-",".","/",";","
 
 
 
-
 var generateBtn = document.querySelector("#generate");
-
-
 
 
 
@@ -45,8 +43,7 @@ generateBtn.addEventListener("click", writePassword);
 // if length is equal to or greater than 8 let pass, if less than or equal to 128 let pass
 //  else give text "Password length needs to be between 8 and 128 characters long"
 
-function userChoice(){ 
-
+function userChoice(){  
         // length has stored the password length as an integer
       var length = parseInt(prompt("Password Length"));
       if(length >= 8 && length <=128){
@@ -56,24 +53,25 @@ function userChoice(){
       alert("Password must be between 8 and 128 characters");
       return null
     }
-
+    // creating all of my confirms 
     var confirmLowercase = confirm("Include lowercase characters");
     var confirmUppercase = confirm("Include uppercase characters");
     var confirmNumeric = confirm("Include numeric characters");
     var confirmSpecial = confirm("Include special characters");
 
-
+    // if any of the characters were selected password will be created 
     if(confirmLowercase === true || 
        confirmUppercase === true || 
       confirmNumeric === true || 
       confirmSpecial === true){
     // generate password using all of the above selections
    }
-
+  //  if not user will be sent back to the start
    else{
     alert("You need to select at least one character type");
     return null 
    }
+  //  store user choices in an object 
    var userAnswer = {
     length : length,
     lowercase: confirmLowercase,
@@ -84,26 +82,16 @@ function userChoice(){
    return userAnswer
   }
 
-  
-  
-   
- 
-    
-    
- 
-
- 
-   // for main function 
 
 
-  
+  // random character picker, since all of my characters are in arrays this will work for all character types 
    function randomCharacter(array){
     character = array[Math.floor(Math.random()*array.length)];
     return character;
    }
 
  
- 
+  //  function to take in all of the user choices and come out with a password 
   function generatePassword(){
     // cannot be global or will be kept there, or would need to var them again here
     var needed = [];
@@ -135,7 +123,7 @@ function userChoice(){
     }
     // for loop putting other possible user chosen characters into the possible array
     for(var i = userInfo.length; i>0; i--){
-    
+   
       if(userInfo.lowercase){
          possible.push(randomCharacter(lowercase));
       }
@@ -159,13 +147,14 @@ function userChoice(){
 
       // creating a function to randomize the password so it doesn't follow a predictable pattern
        function randomPassword(array){
-        for(var j = array.length; j>0;j--){
-          random = Math.floor(Math.random()*j);
+        for(var i = array.length; i>0;i--){
+          var random = Math.floor(Math.random()*i);
           // swapping the previous indexes of the original array with the indexs of the j array
-          [array[array.length], array[j]] = [array[j],array[array.length]];
+          [array[array.length], array[random]] = [array[random],array[array.length]];
         }
         return array
        }
+      //  calling the randomPassword function 
        randomPassword(password);
    
        }
@@ -173,32 +162,15 @@ function userChoice(){
       return password.join("")
       
       }
-    // console.log(password)
-    // console.log(possible)
-    // console.log(userInfo.length)
     
   
     
       
 
 
-      // make a maybe array to concat 
-      // at least one needs to be in my other array
-      // randomizer for array 
-      // call out of randomizer  in each one of the confirm functions 
     
+
   
-  // find a way to use that input as the 
-  // create a function to say yes or no to lowercase letters
-  
-    
-    
-      // include lowercase in password 
-      // assign at least one letter from lowercase to include 
-      // then password includes 1< of the letters in the lowercase array
-      // use return
-   
-      // within userInfo
    
   
  
